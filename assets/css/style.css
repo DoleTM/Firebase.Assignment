@@ -1,1 +1,5 @@
 /* Styles for firebase assignment */
+#jumbotron {
+    background-image: url(../images/jumbotronbackground.jpg);
+    background-size: auto;
+}
