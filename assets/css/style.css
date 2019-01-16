@@ -1,5 +1,36 @@
 /* Styles for firebase assignment */
 #jumbotron {
-    background-image: url(../images/jumbotronbackground.jpg);
+    background-image: url(../images/jumbotron.jpg);
+    background-size: inherit;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.lead {
+    font-weight: bolder;
+}
+
+body {
+    background-image: url(../images/grandcentralstation.jpg);
+    background-size: cover;
+}
+
+.container {
     background-size: auto;
+}
+
+form {
+    background-color: #212529;
+    color: white;
+}
+
+.form-group, #submit-info {
+    margin: 10px;
+}
+
+.card-header {
+    background-image: url(../images/card-header.jpg);
+    background-size: inherit;
+    color: white;
 }

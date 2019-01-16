@@ -17,47 +17,49 @@
 <body>
     <div class="jumbotron jumbotron-fluid" id="jumbotron">
         <div class="container">
-            <h1 class="display-4">Planes & Trains</h1>
+            <h1 class="display-4"> UCF Coding Bootcamp Transit Authority</h1>
             <p class="lead">“The journey not the arrival matters.” – T.S. Eliot</p>
             <div id="current-date"></div>
         </div>
     </div>
 
-    <table class="table table-hover table-dark">
-      <div class="card-header">Current Train Schedule</div>
+    <div class="container">
+        <table class="table table-hover table-dark">
+            <div class="card-header">Current Train Schedule</div>
             <thead>
-              <tr>
-                <th scope="col">Train Name</th>
-                <th scope="col">Destination</th>
-                <th scope="col">Frequency (min)</th>
-                <th scope="col">Next Arrival</th>
-                <th scope="col">Minutes Away</th>
-              </tr>
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
             </thead>
             <tbody id="user-input">
             </tbody>
-          </table>
+        </table>
 
-          <form>
+        <form id="train-form">
             <div class="card-header">Add Train</div>
-                <div class="form-group">
-                  <label for="Train Name">Train Name</label>
-                  <input type="text" class="form-control" id="train-input" placeholder="Train Name">
-                </div>
-                <div class="form-group">
-                  <label for="Destination">Destination</label>
-                  <input type="text" class="form-control" id="dest-input" placeholder="Destination">
-                </div>
-                <div>
-                    <label for="Train Time">First Train Time (HH:mm - military time)</label>
-                    <input type="text" class="form-control" id="time-input" placeholder="Time (HH:mm)">
-                </div>
-                <div>
-                    <label for="Frequency">Frequency (min)</label>
-                    <input type="text" class="form-control" id="freq-input" placeholder="Every ___ minutes">
-                </div>
-                <button type="submit" id="submit-info" class="btn btn-primary">Submit</button>
-              </form>
+            <div class="form-group">
+                <label for="Train Name">Train Name</label>
+                <input type="text" class="form-control" id="train-input" placeholder="Train Name">
+            </div>
+            <div class="form-group">
+                <label for="Destination">Destination</label>
+                <input type="text" class="form-control" id="dest-input" placeholder="Destination">
+            </div>
+            <div class="form-group">
+                <label for="Train Time">First Train Time (HH:mm - military time)</label>
+                <input type="text" class="form-control" id="time-input" placeholder="Time (HH:mm)">
+            </div>
+            <div class="form-group">
+                <label for="Frequency">Frequency (min)</label>
+                <input type="text" class="form-control" id="freq-input" placeholder="Every ___ minutes">
+            </div>
+            <button type="submit" id="submit-info" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>

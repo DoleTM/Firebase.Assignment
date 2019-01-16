@@ -12,15 +12,16 @@ var config = {
     projectId: "fir-assignment-32109",
     storageBucket: "",
     messagingSenderId: "102109895343"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 
-  var train = "";
-  var dest = "";
-  var firstTrainTime = "";
-  var freq = "";
+// Declaring the variables to be used for user inputs
+var train = "";
+var dest = "";
+var firstTrainTime = "";
+var freq = 0;
 
 // When the submit button is clicked it adds the users information to the firebase database
 $("#submit-info").on("click", function (event) {
@@ -43,24 +44,22 @@ $("#submit-info").on("click", function (event) {
 database.ref().on("child_added", function (snapshot) {
     var sv = snapshot.val();
 
-    var svConvert = moment(sv.firstTrainTime, "HH:mm");
-    console.log(svConvert);
+    var svConvert = moment(sv.firstTrainTime, "HH:mm").subtract(1, "years");
     var svDiff = moment().diff(moment(svConvert), "minutes");
     var svRemainder = svDiff % sv.freq;
-    var minutesAway = sv.freq - svRemainder + " min";
-    var nextArrival = moment().add(minutesAway, "minutes");
-    nextArrival = moment(nextArrival).format("hh:mm a");
+    var minutesAway = sv.freq - svRemainder;
+    var nextArrival = moment().add(minutesAway, "minutes").format("LT");
 
-// This displays the information correctly in the table
+    // This displays the information correctly in the table
     $("#user-input").append("<tr>" + "<th scope='row'>" +
         sv.train +
         "</th><td id='dest-display'>" + sv.dest +
         "</td><td id='freq-display'>" + sv.freq +
         "</td><td id='next-arrival'>" + nextArrival +
-        "</td><td id='minutes-away'>" + minutesAway +
+        "</td><td id='minutes-away'>" + minutesAway + " min" +
         "</td></tr>");
 
-// This throws an error message if something has gone wrong
+    // This throws an error message if something has gone wrong
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
